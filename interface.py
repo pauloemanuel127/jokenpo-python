@@ -6,7 +6,7 @@ from tkinter import PhotoImage
 root = tk.Tk()
 root.title("Jokenpô")
 root.config(bg="#00674f")
-root.iconbitmap("jokenpo_page_icon.ico")
+root.iconbitmap("icone_imagens/jokenpo_page_icon.ico")
 
 largura_tela = root.winfo_screenwidth()
 altura_tela = root.winfo_screenheight()
@@ -17,8 +17,86 @@ y = (altura_tela - 700)//2
 root.geometry(f"1200x700+{x}+{y}")
 root.resizable(False,False)
 
+foto1 = PhotoImage(file="icone_imagens/image_2.png")
+foto2 = PhotoImage(file="icone_imagens/image_1.png")
+
 #Fazendo os labels e botões da pagina de entrada
 def pagina_entrada():
+
+    #Fazendo os labels e botões da pagina de jogo
+    #=================TELA DE JOGO=================
+
+    def jogo():
+
+        game_title.destroy()
+        game_subtitle.destroy()
+        press_to_play.destroy()
+        start_button.destroy()
+        credits_button.destroy()
+        exit_button.destroy()
+
+        text = tk.Label(
+            root,
+            text="Choose an option:",
+            font=("Comic Sans MS", 45),
+            bg="#00674f",
+            fg="#fc4b08"
+        )
+        text.pack()
+
+        figura1 = tk.Label(
+            root,
+            image=foto1,
+            bg="#00674f"
+        )
+        figura1.pack()
+        figura1.place(x=110, y=220)
+
+        figura2 = tk.Label(
+            root,
+            image=foto2,
+            bg="#00674f"
+        )
+        figura2.pack()
+        figura2.place(x=790, y=220)
+
+        pedra_button = tk.Button(
+            root,
+            text="ROCK",
+            font=("Comic Sans MS", 35),
+            bg="#58d68d",
+            fg="#fc4b08",
+            width="10",
+            command=()
+        )
+        pedra_button.pack()
+        pedra_button.place(x=450, y=140)
+
+        papel_button = tk.Button(
+            root,
+            text="PAPER",
+            font=("Comic Sans MS", 35),
+            bg="#58d68d",
+            fg="#fc4b08",
+            width="10",
+            command=()
+        )
+        papel_button.pack()
+        papel_button.place(x=450, y=280)
+
+        tesoura_button = tk.Button(
+            root,
+            text="SCISSORS",
+            font=("Comic Sans MS", 35),
+            bg="#58d68d",
+            fg="#fc4b08",
+            width="10",
+            command=()
+        )
+        tesoura_button.pack()
+        tesoura_button.place(x=450, y=420)
+
+    #==============================================
 
     #Fazendo os labels e botões da pagina de creditos
     #=============TELA DE CREDITOS=============
@@ -72,7 +150,7 @@ def pagina_entrada():
             bg="#58d68d",
             fg="#fc4b08",
             width="8",
-            command=(voltar)
+            command=voltar
         )
         back_button.pack()
         back_button.place(x=480, y=550)
@@ -115,6 +193,7 @@ def pagina_entrada():
         bg="#58d68d",
         fg="#fc4b08",
         width="8",
+        command=jogo
     )
     start_button.pack()
     start_button.place(x=480, y=250)
