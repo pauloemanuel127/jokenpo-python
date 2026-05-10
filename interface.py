@@ -1,5 +1,7 @@
 import tkinter as tk
 from tkinter import PhotoImage
+import random
+import interface_cases as ic
 
 #definindo a janela (Aqui estão definidas a janela, cor de fundo, titulo,
 #icone, posição e tamanho da janela)
@@ -27,6 +29,49 @@ def pagina_entrada():
     #=================TELA DE JOGO=================
 
     def jogo():
+
+        def jogada(jogada_player):
+                
+                def voltar():
+
+                    final.destroy()
+                    back_button.destroy()
+                    pagina_entrada()
+
+                jogadas = ["pedra", "papel", "tesoura"]
+                jogada_bot = random.choice(jogadas)
+
+                resultado = ic.verificacao(jogada_player, jogada_bot)
+
+                text.destroy()
+                figura1.destroy()
+                figura2.destroy()
+                pedra_button.destroy()
+                papel_button.destroy()
+                tesoura_button.destroy()
+
+                final = tk.Label(
+                     root,
+                     text=resultado,
+                     font=("Comic Sans MS", 45),
+                     bg="#00674f",
+                     fg="#fc4b08"
+                )
+                final.place(relx=0.5, rely=0.5, anchor="center")
+
+                back_button = tk.Button(
+                root,
+                text="BACK",
+                font=("Comic Sans MS", 35),
+                bg="#58d68d",
+                fg="#fc4b08",
+                width="8",
+                command=voltar
+                )
+                back_button.pack()
+                back_button.place(relx=0.5, y=550, anchor="center")
+
+
 
         game_title.destroy()
         game_subtitle.destroy()
@@ -67,10 +112,10 @@ def pagina_entrada():
             bg="#58d68d",
             fg="#fc4b08",
             width="10",
-            command=()
+            command=lambda: jogada("pedra")
         )
         pedra_button.pack()
-        pedra_button.place(x=450, y=140)
+        pedra_button.place(relx=0.5, y=200, anchor="center")
 
         papel_button = tk.Button(
             root,
@@ -79,10 +124,10 @@ def pagina_entrada():
             bg="#58d68d",
             fg="#fc4b08",
             width="10",
-            command=()
+            command=lambda: jogada("papel")
         )
         papel_button.pack()
-        papel_button.place(x=450, y=280)
+        papel_button.place(relx=0.5, y=340, anchor="center")
 
         tesoura_button = tk.Button(
             root,
@@ -91,10 +136,10 @@ def pagina_entrada():
             bg="#58d68d",
             fg="#fc4b08",
             width="10",
-            command=()
+            command=lambda: jogada("tesoura")
         )
         tesoura_button.pack()
-        tesoura_button.place(x=450, y=420)
+        tesoura_button.place(relx=0.5, y=480, anchor="center")
 
     #==============================================
 
@@ -141,7 +186,7 @@ def pagina_entrada():
             fg="#fc4b08"
         )
         msg.pack()
-        msg.place(x=350, y=200)
+        msg.place(relx=0.5, y=300, anchor="center")
 
         back_button = tk.Button(
             root,
@@ -153,7 +198,7 @@ def pagina_entrada():
             command=voltar
         )
         back_button.pack()
-        back_button.place(x=480, y=550)
+        back_button.place(relx=0.5, y=560, anchor="center")
 
     #===========================================
 
@@ -196,7 +241,7 @@ def pagina_entrada():
         command=jogo
     )
     start_button.pack()
-    start_button.place(x=480, y=250)
+    start_button.place(relx=0.5, y=300, anchor="center")
 
     credits_button = tk.Button(
         root,
@@ -208,7 +253,7 @@ def pagina_entrada():
         command=creditos
     )
     credits_button.pack()
-    credits_button.place(x=480, y=380)
+    credits_button.place(relx=0.5, y=430, anchor="center")
     
     exit_button = tk.Button(
         root,
@@ -220,7 +265,7 @@ def pagina_entrada():
         command=root.destroy
     )
     exit_button.pack()
-    exit_button.place(x=480, y=510)
+    exit_button.place(relx=0.5, y=560, anchor="center")
 
 #====================================================
 
