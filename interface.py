@@ -24,20 +24,38 @@ foto2 = PhotoImage(file="icone_imagens/image_1.png")
 
 #Fazendo os labels e botões da pagina de entrada
 def pagina_entrada():
-
+    """
+    Tela inicial do jogo,
+    responsavel por levar para qualquer outra
+    """
     #Fazendo os labels e botões da pagina de jogo
     #=================TELA DE JOGO=================
 
     def jogo():
+        """
+        Função que gera a tela de jogo 
+        onde o usuario pode escolher entre 3 opções de jogadas
+        """
+
+        #=========================TELA DA JOGADA============================
 
         def jogada(jogada_player):
-                
+                """
+                Função que cria a pagina final 
+                e leva a variavel jogada player para a varificação de casos
+                """
+
                 def voltar():
+                    """
+                    Função responsavel por voltar a tela inicial na tela final
+                    """
 
                     final.destroy()
                     back_button.destroy()
                     pagina_entrada()
 
+                #==============================================================
+                
                 jogadas = ["pedra", "papel", "tesoura"]
                 jogada_bot = random.choice(jogadas)
 
@@ -71,6 +89,7 @@ def pagina_entrada():
                 back_button.pack()
                 back_button.place(relx=0.5, y=550, anchor="center")
 
+        #================================================================================
 
 
         game_title.destroy()
@@ -147,20 +166,21 @@ def pagina_entrada():
     #=============TELA DE CREDITOS=============
     
     def creditos():
-        
-        #Função responsável por voltar para a tela principal
-        #=============FUNÇÃO PARA VOLTAR=============
+        """
+        Função responsavel por gerar/levar para a tela de creditos
+        """
 
         def voltar():
+            """
+            Função para voltar da tela de creditos para a tela original
+            """
 
             credits.destroy()
             msg.destroy()
             back_button.destroy()
             pagina_entrada()
 
-        #============================================
-
-    #=============TELA DE CREDITOS=============
+        #=================================================================
 
         game_title.destroy()
         game_subtitle.destroy()

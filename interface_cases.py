@@ -1,3 +1,6 @@
+#Modulo responsavel pela verificação das possibilidades de resultados para o jogo de acordo com as jogadas
+#Usa a jogada do bot como base, para verificar o caso de acordo com a jogada do player
+
 def verificacao(jogada_player, jogada_bot):
     if jogada_player == jogada_bot:
         resultado = "Its a Tie"

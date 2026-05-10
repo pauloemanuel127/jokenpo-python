@@ -1,3 +1,6 @@
+#Modulo responsavel por verificar o caso para a versão de terminal
+#Funções geradas de acordo com a jogada do bot e testadas com a jogada do player como variavel
+
 def pedra(jogada_player):
     jogada_player = jogada_player.lower()
     if jogada_player == 'papel':
