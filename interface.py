@@ -52,6 +52,7 @@ def pagina_entrada():
 
                     final.destroy()
                     back_button.destroy()
+                    jogadas_text.destroy()
                     pagina_entrada()
 
                 #==============================================================
@@ -67,6 +68,17 @@ def pagina_entrada():
                 pedra_button.destroy()
                 papel_button.destroy()
                 tesoura_button.destroy()
+
+                mensagem_completa = f"Você: {jogada_player} // Bot: {jogada_bot}"
+
+                jogadas_text = tk.Label(
+                     root,
+                     text=mensagem_completa,
+                     font=("Comic Sans MS", 30),
+                     bg="#00674f",
+                     fg="#fc4b08"
+                )
+                jogadas_text.place(relx=0.5, y=240, anchor="center")
 
                 final = tk.Label(
                      root,
