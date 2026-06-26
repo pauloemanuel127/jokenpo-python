@@ -8,7 +8,21 @@ import interface_cases as ic
 root = tk.Tk()
 root.title("Jokenpô")
 root.config(bg="#00674f")
-root.iconbitmap("icone_imagens/jokenpo_page_icon.ico")
+
+try:
+
+    root.iconbitmap("icone_imagens/jokenpo_page_icon.ico")
+
+except tk.TclError:
+    
+    try:
+
+        icone = PhotoImage(file="icone_imagens/jokenpo_page_icon.png")
+        root.iconphoto(False, icone)
+
+    except Exception:
+
+        pass
 
 largura_tela = root.winfo_screenwidth()
 altura_tela = root.winfo_screenheight()
@@ -57,7 +71,7 @@ def pagina_entrada():
 
                 #==============================================================
                 
-                jogadas = ["pedra", "papel", "tesoura"]
+                jogadas = ["rock", "papers", "scissors"]
                 jogada_bot = random.choice(jogadas)
 
                 resultado = ic.verificacao(jogada_player, jogada_bot)
@@ -143,19 +157,19 @@ def pagina_entrada():
             bg="#58d68d",
             fg="#fc4b08",
             width="10",
-            command=lambda: jogada("pedra")
+            command=lambda: jogada("rock")
         )
         pedra_button.pack()
         pedra_button.place(relx=0.5, y=200, anchor="center")
 
         papel_button = tk.Button(
             root,
-            text="PAPER",
+            text="PAPERS",
             font=("Comic Sans MS", 35),
             bg="#58d68d",
             fg="#fc4b08",
             width="10",
-            command=lambda: jogada("papel")
+            command=lambda: jogada("papers")
         )
         papel_button.pack()
         papel_button.place(relx=0.5, y=340, anchor="center")
@@ -167,7 +181,7 @@ def pagina_entrada():
             bg="#58d68d",
             fg="#fc4b08",
             width="10",
-            command=lambda: jogada("tesoura")
+            command=lambda: jogada("scissors")
         )
         tesoura_button.pack()
         tesoura_button.place(relx=0.5, y=480, anchor="center")

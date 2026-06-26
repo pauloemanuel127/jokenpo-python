@@ -6,24 +6,24 @@ def verificacao(jogada_player, jogada_bot):
         resultado = "Its a Tie"
         return resultado
     
-    elif jogada_bot == "pedra":
-        if jogada_player == "papel":
+    elif jogada_bot == "rock":
+        if jogada_player == "papers":
             resultado = "Congratulations, You Win! :)"
             return resultado
         else:
             resultado = "To bad, You lose :("
             return resultado
         
-    elif jogada_bot == "papel":
-        if jogada_player == "tesoura":
+    elif jogada_bot == "papers":
+        if jogada_player == "scissors":
             resultado = "Congratulations, You Win! :)"
             return resultado
         else:
             resultado = "To bad, You lose :("
             return resultado
     
-    elif jogada_bot == "tesoura":
-        if jogada_player == "pedra":
+    elif jogada_bot == "scissors":
+        if jogada_player == "rock":
             resultado = "Congratulation, You Win! :)"
             return resultado
         else:
